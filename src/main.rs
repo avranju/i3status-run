@@ -37,9 +37,8 @@ fn main() {
                 line
             ));
             if json.is_array() {
-                let array = json.as_array_mut().unwrap();
-                array.push(output);
-
+                let mut array = vec![output];
+                array.append(json.as_array_mut().unwrap());
                 format!(
                     "{}{}",
                     prefix,
